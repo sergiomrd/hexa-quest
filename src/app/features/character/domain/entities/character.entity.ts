@@ -6,8 +6,7 @@ export type CharacterProps = Readonly<{
   name: string;
   level: Level;
   experience: Experience;
-  createdAt: Date;
-  updatedAt: Date;
+  avatarUrl: string;
 }>;
 
 export class Character {
@@ -15,17 +14,20 @@ export class Character {
   private _name: string;
   private _level: Level;
   private _experience: Experience;
+  private _avatarUrl: string;
 
   private constructor(
     id: string,
     name: string,
     level: Level,
-    experience: Experience
+    experience: Experience,
+    avatarUrl: string
   ) {
     this._id = id;
     this._name = name;
     this._level = level;
     this._experience = experience;
+    this._avatarUrl = avatarUrl;
   }
 
   static create(props: CharacterProps): Character {
@@ -38,8 +40,9 @@ export class Character {
 
     const level = Level.of(props.level.value);
     const experience = Experience.of(props.experience.value);
+    const avatarUrl = props.avatarUrl;
 
-    return new Character(id, name, level, experience);
+    return new Character(id, name, level, experience, avatarUrl);
   }
 
   get id(): string {
@@ -56,5 +59,9 @@ export class Character {
 
   get experience(): Experience {
     return this._experience;
+  }
+
+  get avatarUrl(): string {
+    return this._avatarUrl;
   }
 }

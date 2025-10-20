@@ -13,6 +13,7 @@ export class Level {
     }
     return new Level(value);
   }
+
   increment(): Level {
     const next = this.value + 1;
     if (next > Level.MAX_LEVEL) {

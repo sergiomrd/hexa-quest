@@ -1,0 +1,30 @@
+<form class="grid gap-6 md:grid-cols-1" (ngSubmit)="onSubmit($event)">
+
+  <div class="flex gap-8">
+    <figure id="avatar" class="flex max-w-32 ring-2 rounded-full overflow-hidden ring-slate-700">
+      <img [ngSrc]="viewModel.avatarUrl" alt="Retrato del héroe" width="96" height="96" class="size-full object-cover"
+        decoding="async" />
+    </figure>
+
+    <div class="flex flex-col gap-2">
+      <label for="name" class="text-sm text-slate-200">Name</label>
+      <input id="name" maxlength="20" minlength="3" type="text" class="rounded-lg bg-slate-800 px-3 py-2 text-slate-100"
+        [value]="viewModel.name" (input)="onNameChange($event)" />
+      <p id="name-help" class="text-xs text-slate-400">{{ viewModel.nameHelp }}</p>
+    </div>
+  </div>
+
+  <div class="md:col-span-2 flex items-center gap-4 pt-4">
+    <button type="button" class="rounded-lg bg-sky-600 px-4 py-2 font-semibold text-white"
+      (click)="onGenerateImage($event)">
+      {{ viewModel.generating ? 'Generating...' : 'Generate Image' }}
+    </button>
+    <button type="submit" [disabled]="!viewModel.canSubmit"
+      class="rounded-lg disabled:opacity-50 bg-sky-600 px-4 py-2 font-semibold text-white" (click)="onSubmit($event)">
+      {{ viewModel.submitting ? 'Submitting...' : 'Submit' }}
+    </button>
+
+  </div>
+
+  <p *ngIf="viewModel.error" class="text-sm text-red-400">{{ viewModel.error }}</p>
+</form>

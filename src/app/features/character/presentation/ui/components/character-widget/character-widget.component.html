@@ -1,0 +1,27 @@
+<article class="flex items-start gap-6 rounded-xl bg-slate-900 p-6 text-slate-100 shadow-lg">
+
+  <figure id="avatar" class="flex max-w-32 ring-2 rounded-full overflow-hidde ring-slate-700">
+    <img ngSrc="https://avatar.iran.liara.run/public/18" alt="Retrato del héroe" width="96" height="96"
+      class="size-full object-cover" decoding="async" />
+  </figure>
+
+  <section class="flex flex-col gap-2 w-full">
+    <h2 class="text-2xl text-white font-bold">Name</h2>
+
+    <section class="flex flex-col gap-2">
+
+      <h2 class="text-xl text-gray-400">Level 1</h2>
+
+      <h2 class="text-base text-gray-400">XP</h2>
+
+      <div class="relative h-2.5 w-full overflow-hidden rounded-full bg-slate-700" role="progressbar"
+        aria-labelledby="xp-label" [attr.aria-valuemin]="0" [attr.aria-valuemax]="100" [attr.aria-valuenow]="46">
+        <div class="absolute inset-y-0 left-0 bg-sky-500" [style.width.%]="46"></div>
+      </div>
+
+      <h1 class="text-lg text-white font-semibold">45/100</h1>
+    </section>
+
+  </section>
+
+</article>

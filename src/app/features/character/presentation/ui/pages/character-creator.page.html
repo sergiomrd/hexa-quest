@@ -1,0 +1,11 @@
+<section class="mx-auto max-w-5xl rounded-xl bg-slate-900/70 p-6 shadow-lg" aria-labelledby="cc-heading">
+
+  <header class="mb-6">
+    <h1 id="cc-heading" class="text-3xl font-bold text-white">
+      Character Creator
+    </h1>
+  </header>
+
+  <app-character-creator-form [viewModel]="store.viewModel()" (nameChange)="store.setName($event)"
+    (generateImage)="store.generateImage()" (submitForm)="store.submitForm()"></app-character-creator-form>
+</section>
